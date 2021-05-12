@@ -1,0 +1,50 @@
+.Filter {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    margin-bottom: 3px;
+    justify-content: space-between;
+}
+
+.Filter_Order_Number {
+    left: 0px;
+}
+
+.Filter_Order_Number-Input {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid var(--main);
+    border-radius: 4px;
+    padding: 4px 4px 4px 30px;
+    height: 2em;
+    background: var(--back);
+}
+
+.Filter_Button {
+    position: absolute;
+    left: 340px;
+    background: var(--main);
+    border-radius: 4px;
+    color: var(--text);
+    width: 95px;
+    height: 2em;
+    cursor: pointer;
+    border: none;
+}
+
+.Filter_Loading {
+    display: flex;
+    position: absolute;
+    right: 55px;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--main);
+}
+
+.Filter_Loading_Picture {
+    margin: 0px 8px
+}
+
+.Filter_Loading_Name {
+    margin: 0px 8px
+}

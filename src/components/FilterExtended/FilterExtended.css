@@ -1,0 +1,75 @@
+.FilterExtended {
+    display: none;
+    flex-direction: row;
+    height: 50px;
+    background: var(--text);
+    border-radius: 8px;
+}
+
+.FilterExtended_Date {
+    padding-top: 3px;
+    margin-left: 10px;
+}
+
+.FilterExtended_Date-Begin, .FilterExtended_Date-End{
+    box-sizing: border-box;
+    width: 130px;
+    border: 1px solid var(--main);
+    border-radius: 4px;
+    height: 2em;
+    background: var(--back);  
+}
+
+.FilterExtended_Status {
+    padding-top: 3px;
+    padding-left: 20px;
+}
+
+.Select {
+    width: 150px;
+    box-sizing: border-box;
+    border: 1px solid var(--main);
+    border-radius: 4px;
+    height: 2em;
+    background: var(--back);  
+}
+
+.FilterExtended_Sum {
+    padding-top: 3px;
+    padding-left: 20px;
+}
+
+.FilterExtended_Sum-From  {
+    box-sizing: border-box;
+    width: 130px;
+    border: 1px solid var(--main);
+    border-radius: 4px;
+    height: 2em;
+    background: var(--back);  
+}
+.FilterExtended_Sum-To  {
+    box-sizing: border-box;
+    width: 130px;
+    border: 1px solid var(--main);
+    border-radius: 4px;
+    height: 2em;
+    background: var(--back);  
+    margin-left: 5px;
+}
+
+
+.FilterExtended_Apply {
+    /* padding-left: 10px; */
+}
+.FilterExtended_Apply_Button {
+    padding-left: 20px;
+    margin-top:0.25rem;
+
+    background: var(--text);
+    border-radius: 4px;
+    color: var(--main);
+    width: 95px;
+    height: 2em;
+    cursor: pointer;
+    border: none;
+}
