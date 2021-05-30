@@ -19,8 +19,8 @@ export default class FilterExtended extends Component {
               <option value="s2">Расчет</option>
               <option selected value="s3">Подтвержден</option>
               <option value="s4">Отложен</option>
-              <option value="s4">Выполнен</option>
-              <option value="s4">Отменен</option>
+              <option value="s5">Выполнен</option>
+              <option value="s6">Отменен</option>
           </select>
       </div>
       <div className="FilterExtended_Sum">

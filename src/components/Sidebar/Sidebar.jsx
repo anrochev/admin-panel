@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import './Sidebar.css';
 import checkmark from '../../icons/checkmark.svg';
 import xlarge from '../../icons/x-large.svg';
+import TVendorCode from '../TVendorCode/TVendorCode';
+
+
+const tableData = [
+  {art: "rt.12024",  name: "Стил блейдс фо грасс",  price: 15339.00},
+  {art: "al.24600",  name: "Газонокосилка Apple Magic Gracc",  price: 82664.00},
+];
+
 export default class Sidebar extends Component {
   constructor(props) {
     super(props);
@@ -19,33 +27,38 @@ export default class Sidebar extends Component {
               <img src={xlarge} alt="checkmark" className="Sidebar_Top_Checkmark" width="18px" height="18px" onClick={this.handleClick}/>
             </div>
             <div className="Sidebar_Body">
-               <div className="Sidebar_Body_Date Sidebar_Body_Item">Дата и время заказа    
+               <div className="Sidebar_Body_Date">Дата и время заказа    
                    <br/>
-                   <input type="text" name="OrderDate" value="06.12.2021" size="58"/>        
+                   <input type="text" name="OrderDate" className="Sidebar_Body_Item" value="06.12.2021" size="58"/>        
                </div>
-               <div className="Sidebar_Body_FIO Sidebar_Body_Item">ФИО покупателя   
+               <div className="Sidebar_Body_FIO">ФИО покупателя   
                    <br/>
-                   <input type="text" name="OrderFIO" value="Степан" size="58"/>                
+                   <input type="text" name="OrderFIO" className="Sidebar_Body_Item"  value="Степан" size="58"/>                
                </div>
-               <div className="Sidebar_Body_TOrder">Таблица заказа   
-                   <div className="Sidebar_Body_TOrder_Header">Шапка таблицы                        
-                    </div>
-                    <div className="Sidebar_Body_TOrder_Body">Тело таблицы                        
-                    </div>      
-                    <div className="Sidebar_Body_TOrder_Footer">Итоги таблицы                       
-                    </div>    
+
+               <div className="Sidebar_Body_TVendorCode">  
+                   <TVendorCode data={tableData}/>   
                </div>
-               <div className="Sidebar_Body_Loyal Sidebar_Body_Item">Уровень лояльности   
+
+               <div className="Sidebar_Body_Loyal">Уровень лояльности   
                    <br/>
-                   <input type="text" name="OrderLoyal" value="Новичок" size="58"/>                
+                   <input type="text" name="OrderLoyal" className="Sidebar_Body_Item" value="Новичок" size="58"/>                
                </div>
-               <div className="Sidebar_Body_Status Sidebar_Body_Item">Статус заказа   
+               <div className="Sidebar_Body_Status ">Статус заказа   
                    <br/>
-                   <input type="text" name="OrderStatus" value="Новый" size="58"/>                
+                  <select name="select" className="Sidebar_Select Sidebar_Body_Item" size="1">
+                      <option value="s1">Новый</option>
+                      <option value="s2">Расчет</option>
+                      <option selected value="s3">Подтвержден</option>
+                      <option value="s4">Отложен</option>
+                      <option value="s5">Выполнен</option>
+                      <option value="s6">Отменен</option>
+                   </select>
+                   {/* <input type="text" name="OrderStatus" value="Новый" size="58"/>                 */}
                </div>
-               <div className="Sidebar_Body_OrderCode Sidebar_Body_Item">Код подтверждения   
+               <div className="Sidebar_Body_OrderCode">Код подтверждения   
                    <br/>
-                   <input type="text" name="OrderCode" value="000" size="58"/>                
+                   <input type="text" name="OrderCode" className="Sidebar_Body_Item" value="000" size="58"/>                
                </div>          
             </div>
             <div className="Sidebar_Bottom">
