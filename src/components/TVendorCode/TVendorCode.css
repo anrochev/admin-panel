@@ -1,0 +1,42 @@
+   .TVendorCode {
+       display: flex;
+       flex-direction: column;
+       flex-grow: 1;
+       width: 100%;
+       max-width: 100%;
+       background: var(--back);
+       border-collapse: collapse;
+   }
+   
+   .TVendorCode thead th {
+       font-weight: bold;
+       text-align: left;
+       padding: 10px 15px;
+       background: var(--main);
+       color: var(--text);
+   }
+   
+   .Table1 {
+       width: 100%;
+   }
+   
+   .TVendorCode tbody td {
+       text-align: left;
+       padding: 10px 15px;
+       border-bottom: 1px solid var(--border);
+       vertical-align: top;
+   }
+   
+   .TVendorCode_FooterWrapper {
+    background: var(--text);  
+    margin-bottom: 20px;
+}
+
+   .TVendorCode_Footer {
+       display: flex;
+       background: var(--text);  
+       height: 40px;
+       justify-content: flex-end;
+       align-items: center;
+       margin-right: 15px;
+   }

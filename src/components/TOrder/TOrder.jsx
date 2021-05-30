@@ -2,21 +2,32 @@ import React, { Component } from 'react';
 import './TOrder.css';
 import v_arrow from '../../icons/v_arrow.svg';
 import dot from '../../icons/dot.svg';
+import Footer from '../Footer/Footer';
 
 export default class TOrder extends Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleClickCheckAll = this.handleClickCheckAll.bind(this);
+ 
     }
 
     handleClick() {
         document.getElementsByClassName('Sidebar')[0].style = 'display: flex';
     }
+    handleClickCheckAll() {
+        let isChecked = document.getElementById('mainCheckBox').checked;     
+        Array.from(document.getElementsByClassName("stringCheckBox")).forEach(
+            function(element) {
+                element.checked =  isChecked ?  true : false;                        
+            });   
+            <Footer data={10}/>         
+    }
 
     render() {
         const data = this.props.data.map(order =>
             <tr className="TOrder_String" onDoubleClick={this.handleClick}>
-                <td width="10px"><input type="checkbox" unchecked name="checkString" /></td>
+                <td width="10px"><input type="checkbox" unchecked name="checkString" className="stringCheckBox" /></td>
                 <td width="90px">{order.ID}</td>
                 <td width="200px">{order.date}</td>
                 <td width="200px"> <img src={dot} alt="dot" width="15px" height="15px" />{order.status}</td>
@@ -32,7 +43,7 @@ export default class TOrder extends Component {
                     <thead>
                         <tr>
                             <th className="th1" width="10px">
-                                <input type="checkbox" unchecked name="checkAll" />
+                                <input type="checkbox" unchecked name="checkAll" id ="mainCheckBox" className="mainCheckBox" onClick={this.handleClickCheckAll}/>
                             </th>
                             <th className="th1" width="90px">#</th>
                             <th className="th1" width="200px">Дата
