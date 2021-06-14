@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './TOrder.css';
+import styles from './TOrder.module.css';
 import v_arrow from '../../icons/v_arrow.svg';
 import dot from '../../icons/dot.svg';
 import Footer from '../Footer/Footer';
@@ -13,7 +13,7 @@ export default class TOrder extends Component {
     }
 
     handleClick() {
-        document.getElementsByClassName('Sidebar')[0].style = 'display: flex';
+        document.getElementById('Sidebar').style = 'display: flex';
     }
     handleClickCheckAll() {
         let isChecked = document.getElementById('mainCheckBox').checked;     
@@ -26,7 +26,7 @@ export default class TOrder extends Component {
 
     render() {
         const data = this.props.data.map(order =>
-            <tr className="TOrder_String" onDoubleClick={this.handleClick}>
+            <tr className={styles.String} onDoubleClick={this.handleClick}>
                 <td width="10px"><input type="checkbox" unchecked name="checkString" className="stringCheckBox" /></td>
                 <td width="90px">{order.ID}</td>
                 <td width="200px">{order.date}</td>
@@ -38,34 +38,34 @@ export default class TOrder extends Component {
         );
         return (
 
-            <div className="TOrder">
+            <div className={styles._}>
                 <table className="Table1">
                     <thead>
                         <tr>
-                            <th className="th1" width="10px">
+                            <th className={styles.th1} width="10px">
                                 <input type="checkbox" unchecked name="checkAll" id ="mainCheckBox" className="mainCheckBox" onClick={this.handleClickCheckAll}/>
                             </th>
-                            <th className="th1" width="90px">#</th>
-                            <th className="th1" width="200px">Дата
+                            <th className={styles.th1} width="90px">#</th>
+                            <th className={styles.th1} width="200px">Дата
                       <img src={v_arrow} alt="v_arrow" width="15px" height="15px" />
                             </th>
-                            <th className="th1" width="200px">Статус
+                            <th className={styles.th1} width="200px">Статус
                       <img src={v_arrow} alt="v_arrow" width="15px" height="15px" />
                             </th>
-                            <th className="th1" width="200px">Позиций
+                            <th className={styles.th1} width="200px">Позиций
                       <img src={v_arrow} alt="v_arrow" width="15px" height="15px" />
                             </th>
-                            <th className="th1" width="200px">Сумма
+                            <th className={styles.th1} width="200px">Сумма
                       <img src={v_arrow} alt="v_arrow" width="15px" height="15px" />
                             </th>
-                            <th className="th1">ФИО покупателя</th>
+                            <th className={styles.th1}>ФИО покупателя</th>
                         </tr>
                     </thead>
-                    <tbody className="TOrder_Body">
+                    <tbody className={styles.Body}>
                         {data}
                     </tbody>
                 </table>
-                <div className="TOrder_Footer">Итоги таблицы</div>
+                <div className={styles.Footer}>Итоги таблицы</div>
             </div>
         );
     }

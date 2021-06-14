@@ -1,4 +1,4 @@
-.Filter {
+._ {
     display: flex;
     flex-direction: row;
     margin-top: 30px;
@@ -6,11 +6,11 @@
     justify-content: space-between;
 }
 
-.Filter_Order_Number {
+.Number {
     left: 0px;
 }
 
-.Filter_Order_Number-Input {
+.NumberInput {
     box-sizing: border-box;
     width: 100%;
     border: 1px solid var(--main);
@@ -20,7 +20,7 @@
     background: var(--back);
 }
 
-.Filter_Button {
+.Button {
     position: absolute;
     left: 340px;
     background: var(--main);
@@ -32,7 +32,7 @@
     border: none;
 }
 
-.Filter_Loading {
+.Loading {
     display: flex;
     position: absolute;
     right: 55px;
@@ -45,6 +45,6 @@
     margin: 0px 8px
 }
 
-.Filter_Loading_Name {
+.Loading_Name {
     margin: 0px 8px
 }

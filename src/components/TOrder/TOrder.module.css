@@ -1,4 +1,4 @@
-   .TVendorCode {
+   ._ {
        display: flex;
        flex-direction: column;
        flex-grow: 1;
@@ -8,7 +8,7 @@
        border-collapse: collapse;
    }
    
-   .TVendorCode thead th {
+   ._ thead th {
        font-weight: bold;
        text-align: left;
        padding: 10px 15px;
@@ -20,23 +20,16 @@
        width: 100%;
    }
    
-   .TVendorCode tbody td {
+   ._ tbody td {
        text-align: left;
        padding: 10px 15px;
        border-bottom: 1px solid var(--border);
        vertical-align: top;
    }
    
-   .TVendorCode_FooterWrapper {
-    background: var(--text);  
-    margin-bottom: 20px;
-}
-
-   .TVendorCode_Footer {
-       display: flex;
-       background: var(--text);  
+   .Footer {
+       display: none;
+       background: var(--tableFooter);
+       vertical-align: center;
        height: 40px;
-       justify-content: flex-end;
-       align-items: center;
-       margin-right: 15px;
    }

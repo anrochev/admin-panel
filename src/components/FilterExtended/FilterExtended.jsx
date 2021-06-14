@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import './FilterExtended.css';
+import styles from './FilterExtended.module.css';
 export default class FilterExtended extends Component {
 
   render() {
     return (
-      <div className="FilterExtended">
-        <div className="FilterExtended_Date">
+      <div className={styles._} id="FilterExtended">
+        <div className={styles.Date}>
             Дата оформления:<br/>
             <label className="FilterExtended_Date-Begin-Label" htmlFor="FilterExtended_Date-Begin">c </label>
-            <input type="date" className="FilterExtended_Date-Begin" id="FilterExtended_Date-Begin"  size="20"/>
+            <input type="date" className={styles.DateBegin} id="FilterExtended_Date-Begin"  size="20"/>
             <label className="FilterExtended_Date-Begin-Label" htmlFor="FilterExtended_Date-End"> по </label>    
-            <input type="date" className="FilterExtended_Date-End" id="FilterExtended_Date-End" size="20"/>
+            <input type="date" className={styles.DateEnd} id="FilterExtended_Date-End" size="20"/>
         </div>
-      <div className="FilterExtended_Status">
+      <div className={styles.Status}>
           Статус заказа:<br/>
-          <select name="select" className="Select" size="1" width="20">
+          <select name="select" className={styles.Select} size="1" width="20">
               <option value="s1">Новый</option>
               <option value="s2">Расчет</option>
               <option selected value="s3">Подтвержден</option>
@@ -23,14 +23,14 @@ export default class FilterExtended extends Component {
               <option value="s6">Отменен</option>
           </select>
       </div>
-      <div className="FilterExtended_Sum">
+      <div className={styles.Sum}>
           Сумма заказа:<br/>
-          <input type="text" className="FilterExtended_Sum-From" placeholder="с " size="20"/>
-          <input type="text" className="FilterExtended_Sum-To" placeholder="по " size="20"/>
+          <input type="text" className={styles.SumFrom} placeholder="с " size="20"/>
+          <input type="text" className={styles.SumTo} placeholder="по " size="20"/>
       </div>
-      <div className="FilterExtended_Apply">
+      <div className={styles.Apply}>
           <br/>
-          <button className="FilterExtended_Apply_Button">Применить</button>
+          <button className={styles.ApplyButton}>Применить</button>
       </div>
   </div>
       );

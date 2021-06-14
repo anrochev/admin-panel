@@ -15,7 +15,7 @@
     transition: left 0.4s ease-in-out;
 }
 
-.Sidebar_Top {
+.Top {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -28,16 +28,16 @@
     font-weight: bold;
 }
 
-.Sidebar_Top_Number {
+.TopNumber {
     padding: 12px 16px 12px 16px;
 }
 
-.Sidebar_Top_Checkmark {
+.Checkmark {
     padding: 19px 19px 12px 16px;
     cursor: pointer;
 }
 
-.Sidebar_Body {
+.Body {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -47,18 +47,18 @@
     padding: 20px 10px 20px 10px;
 }
 
-.Sidebar_Body_TVendorCode {
+.TVendorCode {
     margin: 20px 15px 20px 0px;
 }
 
-.Sidebar_Body_Item {
+.BodyItem {
     margin: 15px 0px 20px 0px;
     border: 1px solid var(--main);
     height: 28px;
     border-radius: 4px;
 }
 
-.Sidebar_Bottom {
+.Bottom {
     display: flex;
     flex-direction: row;
     vertical-align: bottom;
@@ -69,17 +69,21 @@
     padding: 10px;
 }
 
-.Sidebar_Bottom_Progress {
+.Progress {
     color: var(--alert);
     text-align: left;
     margin: 15px 10px 10px 10px;
 }
 
- .Sidebar_Select {
+ .Select {
     width: 96%;
+    margin: 15px 0px 20px 0px;
+    border: 1px solid var(--main);
+    height: 28px;
+    border-radius: 4px;
 } 
 
-.Save_Button {
+.SaveButton {
     display: flex;
     position: absolute;
     right: 16px;

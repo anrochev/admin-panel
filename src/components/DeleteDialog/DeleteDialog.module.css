@@ -1,4 +1,4 @@
-.DeleteDialog {
+._ {
     position: absolute;
     left:300px;
     top: 83%;
@@ -13,7 +13,7 @@
     align-items: center;
 }
 
-.DeleteDialog_Question {
+.Question {
     color: var(--main);
     margin: 8px;
 }

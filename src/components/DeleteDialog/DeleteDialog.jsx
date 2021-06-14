@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './DeleteDialog.css';
+import styles from './DeleteDialog.module.css';
 export default class DeleteDialog extends Component {
   constructor(props) {
     super(props);
@@ -7,21 +7,21 @@ export default class DeleteDialog extends Component {
   }
 
   handleClick() {
-    document.getElementsByClassName('DeleteDialog')[0].style = 'display: none';
+    document.getElementById('DeleteDialog').style = 'display: none';
   }
   render() {
     return (
-      <div className="DeleteDialog">
+      <div className={styles._}  id="DeleteDialog">
 
-        <div className="DeleteDialog_Question">
+        <div className={styles.Question}>
           Удалить n записей?
         </div>
 
-        <button className="DeleteButton" id="delete_button" onClick={this.handleClick}>
+        <button className={styles.DeleteButton} id="delete_button" onClick={this.handleClick}>
           Удалить
                 </button>
 
-        <button className="CancelButton" id="cancel_button" onClick={this.handleClick}>
+        <button className={styles.CancelButton} id="cancel_button" onClick={this.handleClick}>
           Отмена
                 </button>
 

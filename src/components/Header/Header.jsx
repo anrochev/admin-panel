@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Header.css';
+import styles from './Header.module.css';
 import Sun from '../../icons/sun.svg';
 export default class Header extends Component {
   constructor(props) {
@@ -15,22 +15,22 @@ export default class Header extends Component {
       isToggleOn: !state.isToggleOn
     }));
     if (this.state.isToggleOn) {
-      document.getElementsByClassName('Page')[0].style = 'background: #fffefe';
-      document.getElementsByClassName('ThemeName')[0].textContent = 'Светлая тема';
+      document.getElementById('Page').style = 'background: #fffefe';
+      document.getElementById('ThemeName').textContent = 'Светлая тема';
     }
     else {
-      document.getElementsByClassName('Page')[0].style = 'background: black';
-      document.getElementsByClassName('ThemeName')[0].textContent = 'Темная тема';
+      document.getElementById('Page').style = 'background: black';
+      document.getElementById('ThemeName').textContent = 'Темная тема';
     }
   }
 
   render() {
     return (
-      <div className="Header">
-        <div className="Title">Список заказов</div>
-        <div className="Theme">
-          <img src={Sun} alt="sun" width="15px" height="15px" className="ThemePicture" />
-          <div className="ThemeName" onClick={this.handleClick}>
+      <div className={styles._}>
+        <div className={styles.Title}>Список заказов</div>
+        <div className={styles.Theme}>
+          <img src={Sun} alt="sun" width="15px" height="15px" className={styles.ThemePicture} />
+          <div className={styles.ThemeName} id="ThemeName" onClick={this.handleClick}>
             Светлая тема
              </div>
         </div>

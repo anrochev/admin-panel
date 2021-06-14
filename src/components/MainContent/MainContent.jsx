@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './MainContent.css';
+import styles from './MainContent.module.css';
 import Header from '../Header/Header';
 import Filter from '../Filter/Filter';
 import FilterExtended from '../FilterExtended/FilterExtended';
@@ -20,7 +20,7 @@ export default class MainContent extends Component {
 
     render() {
       return (
-        <div className="MainContent">
+        <div className={styles._}>
           <Header/>
           <Filter/>
           <FilterExtended/>

@@ -1,4 +1,4 @@
-.Footer {
+._ {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -8,7 +8,7 @@
     height: 35px;
 }
 
-.FooterForSelected {
+.Selected {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -17,7 +17,7 @@
     margin-left: 10px;
 }
 
-.FooterForSelectedChangeButton {
+.ChangeButton {
     color: var(--text);
     background: var(--main);
     margin: 10px 20px 5px 20px;
@@ -28,7 +28,7 @@
     cursor: pointer;
 }
 
-.FooterForSelectedDeleteButton {
+.DeleteButton {
     color: var(--text);
     background: var(--alert);
     margin: 10px 20px 5px 0px;
@@ -38,7 +38,7 @@
     width: 100px;
     cursor: pointer;
 }
-.FooterPagination {
+.Pagination {
     color: var(--main);
     white-space: nowrap;
 }

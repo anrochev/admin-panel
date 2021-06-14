@@ -1,4 +1,4 @@
-.FilterExtended {
+._ {
     display: none;
     flex-direction: row;
     height: 50px;
@@ -6,12 +6,12 @@
     border-radius: 8px;
 }
 
-.FilterExtended_Date {
+.Date {
     padding-top: 3px;
     margin-left: 10px;
 }
 
-.FilterExtended_Date-Begin, .FilterExtended_Date-End{
+.DateBegin, .DateEnd{
     box-sizing: border-box;
     width: 130px;
     border: 1px solid var(--main);
@@ -20,7 +20,7 @@
     background: var(--back);  
 }
 
-.FilterExtended_Status {
+.Status {
     padding-top: 3px;
     padding-left: 20px;
 }
@@ -34,12 +34,12 @@
     background: var(--back);  
 }
 
-.FilterExtended_Sum {
+.Sum {
     padding-top: 3px;
     padding-left: 20px;
 }
 
-.FilterExtended_Sum-From  {
+.SumFrom  {
     box-sizing: border-box;
     width: 130px;
     border: 1px solid var(--main);
@@ -47,7 +47,7 @@
     height: 2em;
     background: var(--back);  
 }
-.FilterExtended_Sum-To  {
+.SumTo  {
     box-sizing: border-box;
     width: 130px;
     border: 1px solid var(--main);
@@ -58,10 +58,10 @@
 }
 
 
-.FilterExtended_Apply {
+.Apply {
     /* padding-left: 10px; */
 }
-.FilterExtended_Apply_Button {
+.ApplyButton {
     padding-left: 20px;
     margin-top:0.25rem;
 
