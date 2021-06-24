@@ -15,6 +15,14 @@
     align-items: center;
     color: var(--main);
     margin-left: 10px;
+    
+}
+
+.SelectedNumber {
+ 
+    margin-top: 5px;
+  
+    
 }
 
 .ChangeButton {
@@ -31,7 +39,7 @@
 .DeleteButton {
     color: var(--text);
     background: var(--alert);
-    margin: 10px 20px 5px 0px;
+    margin: 10px 20px 5px 15px;
     border: none;
     border-radius: 4px;
     height: 25px;
@@ -42,3 +50,10 @@
     color: var(--main);
     white-space: nowrap;
 }
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+  }

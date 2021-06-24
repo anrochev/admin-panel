@@ -1,0 +1,17 @@
+ ._ thead th tr {
+    font-weight: bold;
+    width: 100%;
+  
+    padding: 10px 15px;
+    background: var(--main);
+    color: var(--text);
+}
+
+
+.th {
+    background: var(--main);
+}
+
+.th:hover {
+    background: #1161b1
+}

@@ -1,0 +1,19 @@
+.text {
+    display: flex;
+    margin-left: 0.5em;
+    color: var(--tableText);
+}
+
+.state {
+    display: flex;
+    justify-content: left;  
+    align-items:flex-start;
+    align-content:flex-start;
+}
+
+.icon{
+    margin-left: 0px;
+    margin-top: auto;
+    margin-right: 0.5em;
+    margin-bottom: auto;
+}

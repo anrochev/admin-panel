@@ -1,0 +1,47 @@
+._ {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 100%;
+    background: var(--back);
+    border-collapse: collapse;
+    overflow: auto;
+}
+
+.headerGridSort {
+    display: none;
+}
+
+._ thead th {
+    font-weight: bold;
+    text-align: left;
+    padding: 10px 15px;
+    background: var(--main);
+    color: var(--buttonText);
+}
+
+.Table1 {    
+    overflow-y: auto;
+}
+
+._ tbody td {
+    text-align: left;
+    border-bottom: 1px solid var(--border-table);
+    vertical-align: center;
+}
+
+.String {
+    color: var(--tableText);
+}
+.String:hover {
+    color: var(--tableText);
+    background: var(--border-table);
+}
+
+.Footer {
+    display: none;
+    background: var(--tableFooter);
+    vertical-align: center;
+    height: 40px;
+}

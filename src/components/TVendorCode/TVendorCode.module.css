@@ -6,6 +6,7 @@
        max-width: 100%;
        background: var(--back);
        border-collapse: collapse;
+    
    }
    
    ._ thead th {
@@ -13,30 +14,20 @@
        text-align: left;
        padding: 10px 15px;
        background: var(--main);
-       color: var(--text);
+       color: var(--buttonText);
    }
    
-   .Table1 {
-       width: 100%;
+   .Table {
+       width: 100%;      
    }
    
    ._ tbody td {
        text-align: left;
        padding: 10px 15px;
-       border-bottom: 1px solid var(--border);
+       border-bottom: 1px solid var(--border-table);
        vertical-align: top;
+       color: var(--tableText);
+       overflow-x: auto;
+       max-height: 10px;
    }
    
-   .FooterWrapper {
-    background: var(--text);  
-    margin-bottom: 20px;
-}
-
-   .Footer {
-       display: flex;
-       background: var(--text);  
-       height: 40px;
-       justify-content: flex-end;
-       align-items: center;
-       margin-right: 15px;
-   }

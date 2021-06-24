@@ -1,47 +1,85 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import styles from './Footer.module.css';
-import pencil from '../../icons/pencil.svg';
-import bin from '../../icons/bin.svg';
-import MainContent from '../MainContent/MainContent';
+import { useSelector } from 'react-redux';
+import { Pagination } from 'components/Pagination/Pagination'
+import { ChangeStatusButton } from 'components/ChangeStatusButton/ChangeStatusButton'
+import { ChangeStatusButtonMenu } from 'components/ChangeStatusButton/ChangeStatusButtonMenu'
+import { DeleteButton } from 'components//DeleteButton/DeleteButton'
+import { DeleteButtonMenu } from 'components//DeleteButton/DeleteButtonMenu'
+import { useDispatch } from 'react-redux'
+import { orderDelete, orderChangeStatus } from 'features/Orders/ordersSlice'
 
-export default class Footer extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleClickChange = this.handleClickChange.bind(this);
-}
+export function Footer({
+  onPageChanged,
+  totalRecords,
+  isNeedRefreshPage,
+}) {
+  const dispatch = useDispatch()
+  const [deleteClicked, setDeleteClicked] = useState(false)
+  const [changeStatusClicked, setChangeStatusClicked] = useState(false)
 
-  handleClick() {
-    document.getElementById('DeleteDialog').style = 'display: flex';
-}
-handleClickChange() {
-  document.getElementById('Sidebar').style = 'display: flex';
-}
 
-    render() {
-      let numberOfSelected = this.props.data;
-      return (
-        <div className={styles._}>
-           <div className={styles.Selected}>
-             <div className={styles.SelectedNumber}>
-               Выбрано записей: {numberOfSelected}
-             </div>
+  const onChangeStatusClick = () => {
+    setChangeStatusClicked(!changeStatusClicked)
+  }
+  const onChangeStatusMenuSelect = (value) => {
+    setChangeStatusClicked(false)
+   
+   if (value) {
+     dispatch(orderChangeStatus(value));
+   }
+  }
 
-             <button className={styles.ChangeButton} id="ChangeButton" onClick={this.handleClickChange}>
-             <img src={pencil} alt="pencil" width="13px" height="13px" />
-              Изменить статус
-             </button>
-
-             <button className={styles.DeleteButton} id="DeleteButton" onClick={this.handleClick}>
-             <img src={bin} alt="bin" width="13px" height="13px" />
-              Удалить
-             </button>                  
-     
-           </div>
-           <div className={styles.Pagination}>
-             1    2    3   ...  18    #
-           </div>
-        </div>
-      );
+  const onDeleteButtonClick = () => {
+    setDeleteClicked(true)
+  }
+  const onDeleteMenuSelect = (value) => {
+    setDeleteClicked(false)
+    if (value) {
+      
+      dispatch(orderDelete())
     }
   }
+
+  const selectedRowCount = useSelector((state) => state.orders.selectedOrdersCount);
+
+  return (
+    <div className={styles._}>
+      <div className={styles.Selected}>
+        <div className={styles.SelectedNumber}>
+          {`Выбрано записей: ${selectedRowCount}`}
+        </div>
+
+        <div className={styles.menu}>
+          <ChangeStatusButtonMenu
+            isShow={changeStatusClicked}
+            onMenuItemSelect={onChangeStatusMenuSelect}
+          />
+          <ChangeStatusButton
+            onClick={onChangeStatusClick}
+          />
+        </div>
+
+        <div className={styles.menu}>
+          <DeleteButtonMenu
+            recordsCount={selectedRowCount}
+            isShow={deleteClicked}
+            onMenuItemSelect={onDeleteMenuSelect}
+          />
+          <DeleteButton
+            onClick={onDeleteButtonClick}
+          />
+        </div>
+
+      </div>
+      <Pagination
+        totalRecords={totalRecords}
+        onPageChanged={onPageChanged}
+        pageLimit={11}
+        pageNeighbours={2}
+        isNeedRefreshPage={isNeedRefreshPage}
+      />
+     
+    </div>
+  );
+}

@@ -1,22 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './Filter.module.css';
 import filter from '../../icons/filter.svg';
 import refresh from '../../icons/refresh.svg';
-export default class Filter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isToggleOn: true,
-    };
-    this.handleClick = this.handleClick.bind(this)
-  }
+import { SearchBox } from 'components/SearchBox/SearchBox'
+import { useDispatch } from 'react-redux'
+import { filterFioOrNumber } from 'features/Orders/ordersSlice'
 
-  handleClick() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
-    }));
-
-    if (this.state.isToggleOn) {
+let isFilterOn = false;
+export function Filter() {
+  const dispatch = useDispatch()
+  
+  function handleClick() {
+    isFilterOn = !isFilterOn;
+    if (isFilterOn) {
       document.getElementById('FilterExtended').style = 'display:flex';
     }
     else {
@@ -24,22 +20,25 @@ export default class Filter extends Component {
     }
   }
 
-  render() {
-    return (
-      <div className={styles._}>
-        <div className={styles.Number}>
-          <input type="text" className={styles.NumberInput} placeholder="Номер заказа или ФИО" size="29" />
+  return (
+    <div className={styles._}>
+      {/* <div className={styles.Number}>
+        <input type="text" className={styles.NumberInput} placeholder="Номер заказа или ФИО" size="29" />
+      </div> */}
+      {/* <SearchBox onChange={onFilter} onClear={onClear} value={value} /> */}
+      <SearchBox 
+         onChange={({ target: { value } }) => dispatch(filterFioOrNumber(value))}
+         onReset={() => dispatch(filterFioOrNumber(''))}
+      />
+      <button className={styles.Button} id="filter_button" onClick={handleClick}>
+        <img src={filter} alt="filter" width="13px" height="13px" />
+        Фильтры
+      </button>
+      <div className={styles.Loading}>
+        <img src={refresh} className={styles.Loading_Name} alt="refresh" width="16px" height="16px" />
+        <div className={styles.Loading_Refresh}>Загрузка
         </div>
-        <button className={styles.Button} id="filter_button" onClick={this.handleClick}>
-          <img src={filter} alt="filter" width="13px" height="13px" />
-              Фильтры
-        </button>
-        <div className={styles.Loading}>
-          <img src={refresh} className={styles.Loading_Name} alt="refresh" width="16px" height="16px" />
-          <div className={styles.Loading_Refresh}>Загрузка
-           </div>
-         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
