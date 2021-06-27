@@ -5,9 +5,9 @@ export default function TVendorCode({ data }) {
 
     const data1 = data.map(order =>
         <tr className={styles.String} key={order.key}>
-            <td width="90px">{order.article}</td>
-            <td width="200px">{order.itemName}</td>
-            <td width="150px">{Number(order.itemSum).toLocaleString('ru') + ' \u20BD'}</td>
+            <td>{order.article}</td>
+            <td>{order.itemName}</td>
+            <td>{Number(order.itemSum).toLocaleString('ru') + ' ₽'}</td>
         </tr>
     );
 
@@ -17,9 +17,9 @@ export default function TVendorCode({ data }) {
             <table className={styles.Table}>
                 <thead>
                     <tr>
-                        <th className="th1" width="100px">Артикул </th>
-                        <th className="th1" width="200px">Наименование </th>
-                        <th className="th1" width="150px">Цена </th>
+                        <th className={styles.Article}>Артикул </th>
+                        <th className={styles.ItemName}>Наименование </th>
+                        <th className={styles.ItemSum}>Цена </th>
                     </tr>
                 </thead>
                 <tbody className={styles.Body}>

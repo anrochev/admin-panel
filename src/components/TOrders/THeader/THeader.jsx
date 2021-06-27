@@ -1,8 +1,8 @@
-import React from 'react';
 import styles from './THeader.module.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { TableHeaderColumnWithCheckBox } from 'components/TOrders/THeader/TableHeaderColumnWithCheckBox'
 import { TableHeaderIcon } from 'components/TOrders/THeader/TableHeaderIcon'
+import React, { useEffect, useState } from 'react';
 import {
   orderCheckBoxCheckedAll,
   orderCheckBoxUnCheckedAll,
@@ -12,12 +12,23 @@ export function THeader(onclick) {
   const dispatch = useDispatch()
   const headerGridSort = useSelector((state) => state.orders.headerGridSort)
 
+  const [valueMainCheckBox, setValueMainCheckBox] = useState(false)
+
+  useEffect(() => {
+    setValueMainCheckBox(valueMainCheckBox)
+  }, [valueMainCheckBox])
+
+  function handleChange (event) {
+    setValueMainCheckBox(event.checked)
+  }
+
   function handleCheckBoxChange({ target: { checked } }) {
     if (checked) {
       dispatch(orderCheckBoxCheckedAll())
     } else {
       dispatch(orderCheckBoxUnCheckedAll())
     }
+    setValueMainCheckBox(checked) 
   }
 
   return (
@@ -25,7 +36,7 @@ export function THeader(onclick) {
       <tr className={styles.tr}>
 
         <th className={styles.th} width="10px">
-          <TableHeaderColumnWithCheckBox onChange={handleCheckBoxChange} />
+          <TableHeaderColumnWithCheckBox onChange={handleCheckBoxChange} checked={valueMainCheckBox}/>
         </th>
 
 

@@ -13,17 +13,19 @@ const ARROW_LEFT = '\u00AB'
  * Вспомогательный метод для создания диапазона значений
  * range(1, 5) => [1, 2, 3, 4, 5]
  */
-const range = (from, to, step = 1) => {
-  let counter = from
-  const range = []
+// const range = (from, to, step = 1) => {
+//   let counter = from
+//   const range = []
 
-  while (counter <= to) {
-    range.push(counter)
-    counter += step
-  }
+//   while (counter <= to) {
+//     range.push(counter)
+//     counter += step
+//   }
 
-  return range
-}
+//   return range
+// }
+const range = (from, to) => Array.from({length: to - from + 1}, (_, index) => index + from)
+
 
 export function Pagination({
   totalRecords,

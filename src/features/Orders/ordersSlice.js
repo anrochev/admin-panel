@@ -214,13 +214,13 @@ export const ordersSlice = createSlice({
 
 
       //Удаление из entities
-      var unDeletedRowsEntities = state.entities.filter( function( item ) {
+      let unDeletedRowsEntities = state.entities.filter( function( item ) {
         return !state.selectedOrders.includes( item.id );
       } );
       state.entities = unDeletedRowsEntities;
     
       //Удаление из filtredOrders
-      var unDeletedRowsFiltred = state.filtredOrders.filter( function( item ) {
+      let unDeletedRowsFiltred = state.filtredOrders.filter( function( item ) {
         return !state.selectedOrders.includes( item.id );
       } );
       state.filtredOrders = unDeletedRowsFiltred;

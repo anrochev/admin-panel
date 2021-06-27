@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { filterExtended } from 'features/Orders/ordersSlice'
 import { InputsWithLabel } from 'components/Inputs/InputsWithLabel'
 import { Input } from 'components/Inputs/Input'
+import classNames from 'classnames'
 
 export function FilterExtended({ visible }) {
   const dispatch = useDispatch()
@@ -16,6 +17,12 @@ export function FilterExtended({ visible }) {
     priceTo: ''
   })
   const stateOfOrders = useSelector((state) => state.ui.stateOfOrders)
+
+  const visiblePanelStyleName = classNames({
+    [styles.panel]: true,
+    [styles.panelInVisible]: !visible
+  })
+
 
   function handleClickApplyFilter() {
     console.log({ ...form })
@@ -35,17 +42,10 @@ export function FilterExtended({ visible }) {
     setForm({ ...form, statusFilter: [...value] })
   }
 
+
+
   return (
-    <div className={styles._} id="FilterExtended">
-      {/* <div className={styles.Date}>
-        Дата оформления:<br />
-        <label className="FilterExtended_Date-Begin-Label" htmlFor="FilterExtended_Date-Begin">c </label>
-        <input type="date" className={styles.DateBegin} name='dateOrderFrom' id="FilterExtended_Date-Begin"
-          size="20" onChange={handleChangeInput} onReset={handleResetInput} />
-        <label className="FilterExtended_Date-Begin-Label" htmlFor="FilterExtended_Date-End"> по </label>
-        <input type="date" className={styles.DateEnd} name='dateOrderTo' id="FilterExtended_Date-End" size="20"
-          onChange={handleChangeInput} onReset={handleResetInput} />
-      </div> */}
+    <div className={visiblePanelStyleName} id="FilterExtended"> 
 
       <div className={styles.inputDateFrom}>
           <InputsWithLabel
@@ -63,24 +63,16 @@ export function FilterExtended({ visible }) {
         </div>
 
       <div className={styles.inputStatus}> Статус заказа:
-       {/* <label className={styles.inputStatusLabel}>Статус заказа:</label>  */}
-        {/* <br /> */}
+
         <CheckBoxMultiSelect
           items={stateOfOrders}
           defaultValue='Любой'
           placeholder='dd.mm.dddd'
           caption='Статус заказа'
           onChange={handleChangeStatus}
+          selectedItems = {form.statusFilter}
         />
       </div>
-
-      {/* <div className={styles.Sum}>
-        Сумма заказа:<br />
-        <input type="text" className={styles.SumFrom} name='priceFrom' placeholder="с "
-          size="20" onChange={handleChangeInput} onReset={handleResetInput} />
-        <input type="text" className={styles.SumTo} name='priceTo' placeholder="по "
-          size="20" onChange={handleChangeInput} onReset={handleResetInput} />
-      </div> */}
 
       <div className={styles.inputSummaFrom}>
           <InputsWithLabel

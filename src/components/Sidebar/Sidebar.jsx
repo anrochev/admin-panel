@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Select } from 'components/Inputs/Select'
 import { InputsWithLabel } from 'components/Inputs/InputsWithLabel'
 import { orderUpdate } from 'features/Orders/ordersSlice'
+import classNames from 'classnames'
 
 const tableData = [
   { key: 1, article: "rt.12024", itemName: "Стил блейдс фо грасс", itemSum: 15339.00 },
@@ -15,62 +16,70 @@ const tableData = [
 ];
 const trueValue = true
 
-export function Sidebar({ orderForEdit }) {
+export function Sidebar({ show, onClose, orderForEdit }) {
   const dispatch = useDispatch()
-  const [fullName, setFullName] = useState('')
-  const [status, setStatus] = useState('')
-  const [code, setCode] = useState('')
+
   const [isCodeError, setIsCodeError] = useState(false)
   const [textCodeError, setTextCodeError] = useState('')
   const stateOfOrders = useSelector((state) => state.ui.stateOfOrders)
 
-  function handleClick() {
-    document.getElementById('Sidebar').style = 'display: none';
+  const showChangeTheme = classNames({
+    [styles.Sidebar]: true,
+    [styles.SidebarVisible]: show,
+    [styles.SidebarInVisible]: !show
+  })
+
+
+  const [form, setForm] = useState({
+    fullName: '',  
+    code: '',
+    status: ''  
+  })
+  
+  const handleChange = ({ target: { value, name }}) => {
+    setForm({ ...form, [name]: value })
+  }
+
+  function handleClose () {
+    onClose()
   }
 
   useEffect(() => {
-    if (orderForEdit.customerName) {
-      setFullName(orderForEdit.customerName)
+  
+  if ((orderForEdit.customerName) && (orderForEdit.status)) {
+      setForm({fullName: orderForEdit.customerName, status: orderForEdit.status.toString(), code:''})
     }
-    if (orderForEdit.status) {
-      setStatus(orderForEdit.status.toString())
-    }
-    setCode('')
+  
   }, [orderForEdit])
 
+
+  function handleClose () {
+    onClose()
+  }
+
+ 
   function handleClickEditOrder() {
-    if (code === '000') {
+    if (form.code === '000') {
       setIsCodeError(false)
       setTextCodeError('')
       const order = { ...orderForEdit }
-      order.customerName = fullName
-      order.status = status
-      console.log(order)
+      order.customerName = form.fullName
+      order.status = form.status 
+   
       dispatch(orderUpdate(order))
-      document.getElementById('Sidebar').style = 'display: none';
+      handleClose ()
     } else {
       // setIsCodeError(true)
-      setTextCodeError(code === '' ? 'Код подтверждения не заполнен' : 'Код подтверждения не верен')
-    }
-  
+      setTextCodeError(form.code === '' ? 'Код подтверждения не заполнен' : 'Код подтверждения не верен')
+    }  
   }
 
-  function handleFioChange({ target: { value: currentValue } }) {
-    setFullName(currentValue)
+  function handleCodeReset(name) {
+   // setCode('')
+    setForm({ ...form, [name]: '' })
   }
 
-  function handleStatusChange({ target: { value: currentValue } }) {
-    setStatus(currentValue)
-  }
-
-  function handleCodeChange({ target: { value: currentValue } }) {
-    setCode(currentValue)
-  }
-
-  function handleCodeReset() {
-    setCode('')
-  }
-  var orderItems1;
+  let orderItems1;
   if (orderForEdit.orderItems === undefined) {
     orderItems1 = tableData;
     orderForEdit.date = '2021-06-29'
@@ -80,10 +89,10 @@ export function Sidebar({ orderForEdit }) {
   }
 
   return (
-    <div className={styles.Sidebar} id="Sidebar">
+    <div className={showChangeTheme} id="Sidebar">
       <div className={styles.Top}>
         <div className={styles.TopNumber}># Заявка {orderForEdit.number}</div>
-        <img src={xlarge} alt="checkmark" className={styles.Checkmark} width="18px" height="18px" onClick={handleClick} />
+        <img src={xlarge} alt="checkmark" className={styles.Checkmark} width="18px" height="18px" onClick={handleClose} />
       </div>
       <div className={styles.Body}>
   
@@ -102,8 +111,9 @@ export function Sidebar({ orderForEdit }) {
             type='disabled'
             placeholder='ФИО покупателя'
             caption='ФИО покупателя'
-            valueInput={fullName}
-            onChange={handleFioChange}
+            valueInput={form.fullName}      
+            onChange={handleChange}
+             name="fullName"
           />
         </div>
 
@@ -124,9 +134,11 @@ export function Sidebar({ orderForEdit }) {
         <div className={styles.Status}>Статус заказа
        
           <Select
-            items={stateOfOrders}
-            onChange={handleStatusChange}
+            items={stateOfOrders}           
+            onChange={handleChange}
             currentValue={orderForEdit.status}
+            currentValue={form.status}
+            name="status"
           />
         </div>
     
@@ -135,9 +147,10 @@ export function Sidebar({ orderForEdit }) {
             placeholder='Код подтверждения (тестовый код 000)'
             caption='Код подтверждения'
             isError={isCodeError}
-            onChange={handleCodeChange}
-            onReset={handleCodeReset}
-            valueInput={code}
+            onChange={handleChange}      
+             onReset={handleCodeReset}
+            valueInput={form.code}
+            name="code"
           />
         </div>
 

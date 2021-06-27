@@ -1,10 +1,14 @@
-._ {
-    display: none;
+.panel {
+    display: flex;
     flex-direction: row;
     height: 50px;
     background: var(--text);
     border-radius: 8px;
 }
+
+.panelInVisible {
+    display: none;
+  }
 
 .Date {
     padding-top: 3px;

@@ -8,14 +8,7 @@ export function Icon ({ icon, color, rotate }) {
 
   const styleTypeIcon = classNames({
     [IconName]: true,
-    [styles.white]: color === 'White',
-    [styles.primary]: color === 'Primary',
-    [styles.secondary]: color === 'Secondary',
-    [styles.orange]: color === 'orange',
-    [styles.green]: color === 'green',
-    [styles.grey]: color === 'grey',
-    [styles.blue]: color === 'blue',
-    [styles.lightBlue]: color === 'lightBlue',
+    [styles[color]]:true,
     [styles.rotate_180]: rotate === 180
   })
   return <i className={styleTypeIcon} />

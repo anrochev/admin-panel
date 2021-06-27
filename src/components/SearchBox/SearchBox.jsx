@@ -8,7 +8,6 @@ export function SearchBox({ onChange, onReset }) {
    function handleReset () {
     setValue('')
     onReset()
-    document.getElementById("FilterInputField").value="";
   }
 
   function handleChange ({ target: { value: currentValue } }) {

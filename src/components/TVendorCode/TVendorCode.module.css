@@ -20,6 +20,16 @@
    .Table {
        width: 100%;      
    }
+
+   .Article {
+    width: 70px;      
+}
+.ItemName {
+    width: 250px;      
+}
+.ItemSum {
+    width: 130px;      
+}
    
    ._ tbody td {
        text-align: left;

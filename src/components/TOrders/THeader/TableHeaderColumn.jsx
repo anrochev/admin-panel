@@ -6,7 +6,7 @@ import { Icon } from 'components/Icons/Icon'
 import styles from 'components/TOrders/THeader/TableHeaderColumn.module.css'
 
 export function TableHeaderColumn ({ children, size, sorting, onClick }) {
-  const ColumnItemSizeName = styles[size + 'Size']
+  const ColumnItemSizeName = styles[size + `Size`]
   const [rotate, setRotate] = useState(0)
   const [visibleIcon, setVisibleIcon] = useState(false)
   const tableColumnItemStyleName = classNames({

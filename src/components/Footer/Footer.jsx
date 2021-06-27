@@ -15,12 +15,12 @@ export function Footer({
   isNeedRefreshPage,
 }) {
   const dispatch = useDispatch()
-  const [deleteClicked, setDeleteClicked] = useState(false)
-  const [changeStatusClicked, setChangeStatusClicked] = useState(false)
+  const [isDeleteClicked, setDeleteClicked] = useState(false)
+  const [isChangeStatusClicked, setChangeStatusClicked] = useState(false)
 
 
   const onChangeStatusClick = () => {
-    setChangeStatusClicked(!changeStatusClicked)
+    setChangeStatusClicked(!isChangeStatusClicked)
   }
   const onChangeStatusMenuSelect = (value) => {
     setChangeStatusClicked(false)
@@ -52,7 +52,7 @@ export function Footer({
 
         <div className={styles.menu}>
           <ChangeStatusButtonMenu
-            isShow={changeStatusClicked}
+            isShow={isChangeStatusClicked}
             onMenuItemSelect={onChangeStatusMenuSelect}
           />
           <ChangeStatusButton
@@ -63,7 +63,7 @@ export function Footer({
         <div className={styles.menu}>
           <DeleteButtonMenu
             recordsCount={selectedRowCount}
-            isShow={deleteClicked}
+            isShow={isDeleteClicked}
             onMenuItemSelect={onDeleteMenuSelect}
           />
           <DeleteButton

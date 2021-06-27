@@ -5,21 +5,23 @@ import styles from './CheckBox.module.css'
 export function CheckBox ({ name, checked, onChange, children }) {
   const [value, setValue] = useState(false)
 
-  useEffect(() => {
-    setValue(checked)
-  }, [checked])
+  // useEffect(() => {
+  //   setValue(checked)
+  // }, [checked])
 
-  function handleChange (event) {
-    setValue(event.checked)
-    onChange(event)  
-  }
+  // function handleChange (event) {
+  //   setValue(event.checked)
+  //   onChange(event)  
+  // }
   return (
     <label className={styles.container}>
       <input
         name={name}
         type='checkbox'
-        checked={value}
-        onChange={handleChange}
+        // checked={value}
+        // onChange={handleChange}
+        checked={checked}
+        onChange={onChange}
       />
       <span className={styles.checkmark} />
       {children}

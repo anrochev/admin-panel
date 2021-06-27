@@ -5,7 +5,7 @@ import { CheckBox } from 'components/CheckBox/CheckBox'
 import { Icon } from 'components/Icons/Icon'
 import styles from './CheckBoxMultiSelect.module.css'
 
-export function CheckBoxMultiSelect ({ items, onChange, defaultValue }) {
+export function CheckBoxMultiSelect ({ items, onChange, defaultValue, selectedItems }) {
   const [isOpenPopup, setIsOpenPopup] = useState(false)
   const [selectedValues, setSelectedValues] = useState([])
 
@@ -19,16 +19,11 @@ export function CheckBoxMultiSelect ({ items, onChange, defaultValue }) {
   })
 
   function handleChangeCheckBox ({ target: { checked, name } }) {
-    console.log(name)
     if (checked) {
-      setSelectedValues([...selectedValues, name])
-      onChange([...selectedValues, name])
+      onChange([...selectedItems, name])
     } else {
-      const index = selectedValues.findIndex((elem) => elem === name)
-      const selectedValuesNew = [...selectedValues]
-      selectedValuesNew.splice(index, 1)
-      setSelectedValues(selectedValuesNew)
-      onChange(selectedValuesNew)
+      const selected = selectedItems.filter((elem) => elem !== name);
+      onChange(selected);      
     }
   }
 
@@ -44,7 +39,8 @@ export function CheckBoxMultiSelect ({ items, onChange, defaultValue }) {
         {
           items.map((item) => {
             return (
-              <li key={item.key}><CheckBox name={item.key} onChange={handleChangeCheckBox}>{item.value}</CheckBox></li>
+              <li key={item.key}><CheckBox name={item.key} onChange={handleChangeCheckBox} 
+               checked = {selectedItems.indexOf(item.key) !== -1}>{item.value}</CheckBox></li>
             )
           })
         }

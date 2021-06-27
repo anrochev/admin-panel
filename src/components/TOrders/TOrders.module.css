@@ -21,7 +21,7 @@
     color: var(--buttonText);
 }
 
-.Table1 {    
+.TableOrders {    
     overflow-y: auto;
 }
 
@@ -31,17 +31,11 @@
     vertical-align: center;
 }
 
-.String {
+.OrderTableRow {
     color: var(--tableText);
 }
-.String:hover {
+.OrderTableRow:hover {
     color: var(--tableText);
     background: var(--border-table);
 }
 
-.Footer {
-    display: none;
-    background: var(--tableFooter);
-    vertical-align: center;
-    height: 40px;
-}

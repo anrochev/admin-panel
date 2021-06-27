@@ -1,7 +1,7 @@
 .loading {
     width: 3rem;
     height: 3rem;
-    -webkit-animation-name: spin;
+    /* -webkit-animation-name: spin; */
     -webkit-animation-duration: 2000ms;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear;

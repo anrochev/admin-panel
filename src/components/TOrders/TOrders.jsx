@@ -24,19 +24,21 @@ export function TOrders() {
   const currentPage = useSelector((state) => state.orders.currentPage)
   const selectedOrdersCount = useSelector((state) => state.orders.selectedOrdersCount)
   const [currentOrders, setCurrentOrders] = useState([])
+  const [showEditOrder, setShowEditOrder] = useState(false)  
+
 
   useEffect(() => {
     dispatch(fetchOrdersAll())
   }, [])
 
   let isNeedRefreshDataVar = false;
-  var dataSlicePage;
-  var pageOffset;
+  let dataSlicePage;
+  let pageOffset;
   useEffect(() => {
     pageOffset = (currentPage - 1) * 11;
     dataSlicePage = data.slice(pageOffset, pageOffset + 11)
     setCurrentOrders([...dataSlicePage])
-    isNeedRefreshDataVar = true
+   isNeedRefreshDataVar = true
   }, [headerGridSort, selectedOrdersCount, orders])
 
 
@@ -52,11 +54,17 @@ export function TOrders() {
   function handleClick(event, key) {
     const orderFind = orders.find(order => order.id === key)
     setOrderForEdit(orderFind)
-    document.getElementById('Sidebar').style = 'display: flex';
+    //document.getElementById('Sidebar').style = 'display: flex';
+    setShowEditOrder(true)
+    console.log("Обработка открытия заказа")
+  }
+
+  function handleCloseEditOrder () {
+    setShowEditOrder(false)
   }
 
   const data = orders.map(order =>
-    <tr className={styles.String} key={order.id} onDoubleClick={(event, data) => handleClick(event, order.id)}>
+    <tr className={styles.OrderTableRow} key={order.id} onDoubleClick={(event, data) => handleClick(event, order.id)}>
       <td
         width="10px">
 
@@ -76,7 +84,7 @@ export function TOrders() {
       </td>
 
       <td width="200px">{order.itemsCount}</td>
-      <td width="200px">{Number(order.sum).toLocaleString('ru') + ' \u20BD'} </td>
+      <td width="200px">{Number(order.sum).toLocaleString('ru') + ' ₽'} </td>
       <td width="auto">{order.customerName}</td>
     </tr>
   );
@@ -94,14 +102,13 @@ export function TOrders() {
   return (
 
     <div className={styles._}>
-      <Sidebar orderForEdit={orderForEdit} />
-      <table className={styles.Table1}>
+      <Sidebar show={showEditOrder} onClose={handleCloseEditOrder} orderForEdit={orderForEdit} />
+      <table className={styles.TableOrders}>
         <THeader />
 
         <tbody className={styles.Body}>
           {currentOrders}
         </tbody>
-
 
       </table>
       <div className={styles.Footer}>Итоги таблицы</div>
