@@ -1,40 +1,32 @@
-import React, { Component } from 'react';
-import './Header.css';
-import Sun from '../../icons/sun.svg';
-export default class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isToggleOn: true,
-    };
-    this.handleClick = this.handleClick.bind(this)
+import React, { useState } from 'react';
+import styles from './Header.module.css';
+import { ChangeTheme } from 'components/window/ChangeTheme'
+import { useSelector } from 'react-redux'
+import { Button } from 'components/Buttons/Button'
+export function Header() {
+
+  const [showChangeTheme, setShowChangeTheme] = useState(false)
+  const theme = useSelector((state) => state.ui.theme)
+  const iconName = theme === 'light' ? 'Sun' : 'Moon'
+  const themeName = theme === 'light' ? 'Светлая тема' : 'Темная тема'
+
+  function handleClick() {
+    setShowChangeTheme(true)
   }
 
-  handleClick() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
-    }));
-    if (this.state.isToggleOn) {
-      document.getElementsByClassName('Page')[0].style = 'background: #fffefe';
-      document.getElementsByClassName('ThemeName')[0].textContent = 'Светлая тема';
-    }
-    else {
-      document.getElementsByClassName('Page')[0].style = 'background: black';
-      document.getElementsByClassName('ThemeName')[0].textContent = 'Темная тема';
-    }
+  function handleClose() {
+    setShowChangeTheme(false)
   }
+  return (
+    <div className={styles._}>
+      <div className={styles.Title}>Список заказов</div>
 
-  render() {
-    return (
-      <div className="Header">
-        <div className="Title">Список заказов</div>
-        <div className="Theme">
-          <img src={Sun} alt="sun" width="15px" height="15px" className="ThemePicture" />
-          <div className="ThemeName" onClick={this.handleClick}>
-            Светлая тема
-             </div>
-        </div>
+      <div className={styles.Theme}>
+        <Button size='Big' icon={iconName} onClick={handleClick} textColor='Primary' className={styles.Button}>
+          {themeName}
+        </Button>
+        <ChangeTheme show={showChangeTheme} onClose={handleClose} />
       </div>
-    );
-  }
+    </div>
+  );
 }

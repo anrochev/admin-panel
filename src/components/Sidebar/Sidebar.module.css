@@ -1,0 +1,149 @@
+.Sidebar {
+    position: absolute;
+    flex-direction: column;
+    flex-grow: 1;
+    background: var(--back);
+    right: 0px;
+    top: 10px;
+    width: 480px;
+    height: 100%;
+    border: 1px solid var(--border);
+    -webkit-transition: left 0.4s ease-in-out;
+    -moz-transition: left 0.4s ease-in-out;
+    -ms-transition: left 0.4s ease-in-out;
+    -o-transition: left 0.4s ease-in-out;
+    transition: left 0.4s ease-in-out;
+}
+
+.SidebarVisible{
+    display: flex;
+}
+
+.SidebarInVisible{
+    display: none;
+}
+
+.Top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 56px;
+    width: 100%;
+    background: var(--main);
+    color: var(--buttonText);
+    text-align: left;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.TopNumber {
+    padding: 12px 16px 12px 16px;
+}
+
+.Checkmark {
+    padding: 19px 19px 12px 16px;
+    cursor: pointer;
+}
+
+.Body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: left;
+    background: var(--back);
+    padding: 20px 10px 20px 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+}
+
+.Body::-webkit-scrollbar {
+    width: 0.25em;
+    background-color: #f9f9fd;
+}
+
+.Body::-webkit-scrollbar-thumb {
+    background-color: #00000057;
+}
+
+
+.TVendorCode {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 15px 10px 0px;
+    width: 100%;
+}
+
+.BodyItem {
+    margin: 15px 0px 20px 0px;
+    border: 1px solid var(--main);
+    height: 28px;
+    border-radius: 4px;
+    width: 100%
+}
+
+.Bottom {
+    display: flex;
+    flex-direction: row;
+    vertical-align: bottom;
+    position: relative;
+    bottom: 30px;
+    background: var(--text);
+    height: 48px;
+    padding: 10px;
+}
+
+.Progress {
+    color: var(--alert);
+    text-align: left;
+    margin: 15px 10px 10px 10px;
+}
+
+ .Select {
+    width: 96%;
+    margin: 15px 0px 20px 0px;
+    border: 1px solid var(--main);
+    height: 28px;
+    border-radius: 4px;
+} 
+
+.SaveButton {
+    display: flex;
+    position: absolute;
+    right: 16px;
+    background: var(--main);
+    border-radius: 4px;
+    margin: 15px 10px 10px 10px; 
+    color: var(--buttonText);
+    border: none;
+    height: 25px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.OrderCode {
+    display: flex;
+    color: var(--tableText);
+    margin: 10px 0px 20px 0px;
+}
+
+.BodyDate {
+    color: var(--tableText);
+}
+
+.FIO{
+    color: var(--tableText);
+    margin: 10px 0px 10px 0px;
+}
+
+.Loyal{
+    display: flex;
+    color: var(--tableText);
+    margin: 10px 0px 20px 0px;
+}
+
+.Status{
+    display: flex;
+    color: var(--tableText);
+}
+

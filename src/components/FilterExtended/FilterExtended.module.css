@@ -1,0 +1,123 @@
+.panel {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    background: var(--text);
+    border-radius: 8px;
+}
+
+.panelInVisible {
+    display: none;
+  }
+
+.Date {
+    padding-top: 3px;
+    margin-left: 10px;
+}
+
+.DateBegin, .DateEnd{
+    box-sizing: border-box;
+    width: 130px;
+    border: 1px solid var(--main);
+    border-radius: 4px;
+    height: 2em;
+    background: var(--back);  
+}
+
+.inputDateFrom {
+    width: 12rem;
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  .inputDateTo {
+    width: 12rem;
+    padding-left: 0.5rem;
+    display: flex;
+    align-items: flex-end;
+  }
+
+.Status {
+    padding-top: 3px;
+    padding-left: 20px;
+}
+
+.inputStatus {
+    display: flex;
+    flex-direction: column; 
+    width: 12rem;
+    padding-left: 0.5rem;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-top: 3px;
+    color: var(--black-color);  
+  }
+
+  .inputStatusLabel {
+   margin-bottom: 0.1rem;
+   margin-top: 0rem;  
+  }
+
+.Select {
+    width: 150px;
+    box-sizing: border-box;
+    border: 1px solid var(--main);
+    border-radius: 4px;
+    height: 2em;
+    background: var(--back);  
+}
+
+
+
+.Sum {
+    padding-top: 3px;
+    padding-left: 20px;
+}
+
+.SumFrom  {
+    box-sizing: border-box;
+    width: 130px;
+    border: 1px solid var(--main);
+    border-radius: 4px;
+    height: 2em;
+    background: var(--back);  
+}
+.SumTo  {
+    box-sizing: border-box;
+    width: 130px;
+    border: 1px solid var(--main);
+    border-radius: 4px;
+    height: 2em;
+    background: var(--back);  
+    margin-left: 5px;
+}
+
+.inputSummaFrom {
+    width: 12rem;
+    padding-left: 0.5rem;
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  .inputSummaTo {
+    width: 12rem;
+    padding-left: 0.5rem;
+    display: flex;
+    align-items: flex-end;
+  }
+
+
+
+.ApplyButton {
+    padding-left: 20px;
+    padding-bottom: 7px;
+    margin-top:0.25rem;
+    font-size: 1rem;
+    background: var(--text);
+    border-radius: 4px;
+    color: var(--main);
+    width: 95px;
+    height: 2em;
+    cursor: pointer;
+    border: none;
+}

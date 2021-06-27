@@ -1,0 +1,16 @@
+.text {
+    display: flex;
+    margin-left: 0.5em;
+    color: var(--tableText);
+}
+
+.state {
+    display: flex;
+}
+
+.icon{
+    margin-left: 0px;
+    margin-top: auto;
+    margin-right: 0.5em;
+    margin-bottom: auto;
+}

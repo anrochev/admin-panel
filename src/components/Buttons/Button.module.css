@@ -1,0 +1,75 @@
+.Button {
+  border: none;
+  display: flex;
+  border-radius: 0.25rem;
+  align-content: center;
+  align-items: stretch;
+  cursor: pointer;
+}
+
+.BlueButton {
+  background: var(--main);
+}
+
+.RedButton {
+  background: var(--alert);
+}
+
+.transparentButton {
+  background: transparent;
+}
+
+.textButtonWhite {
+  display: flex;
+  background: transparent;
+  border: none;
+  color: var(--whiteGrey);
+  text-align: center;
+  margin: auto;
+  cursor: pointer;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.textButtonPrimary {
+  display: flex;
+  background: transparent;
+  border: none;
+  color: #459df5;
+  text-align: center;
+  margin: auto;
+  cursor: pointer;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.textButtonSecondary {
+  display: flex;
+  background: transparent;
+  border: none;
+  color: var(--tableText);
+  text-align: center;
+  margin: auto;
+  cursor: pointer;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.mediumSize {
+  display: flex;
+  height: 2rem;
+}
+
+.bigSize {
+  display: flex;
+  height: 2.5rem;
+}

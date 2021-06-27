@@ -1,0 +1,58 @@
+.lightTheme {
+  --back: #fffefe;
+  --border: #ddd;
+  --text: #EBF0F5;
+  --buttonText: #EBF0F5;
+  --main: #459DF5;
+  --tableFooter: mediumpurple;
+  --alert: red;
+  --dropdown-shadow-color: #C4C4C4;
+  --tableText: black;
+  --blackWhite: black;
+  --whiteGrey: #FFF;
+  --border-table: #EBF0F5;
+  --ligth-blue: #BAD8F5;
+  --orange-color: #FF8C56;
+  --green-color: #0FB864;
+  --grey-color: #8055FF;
+  --black-color: #000;
+  --white-color: #FFF;
+  --dropdown-shadow-box: 0px 8px 24px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.darkTheme {
+  --back: #2B2D33;
+  --border:lightgrey;
+  --text: #1F2629;
+  --buttonText: black;
+  --main: #459DF5;
+  --tableFooter: mediumpurple;
+  --alert: red;
+  --tableText: lightgrey;
+  --dropdown-shadow-color: #C4C4C4;
+  --blackWhite: white;
+  --whiteGrey: #2B2D33;
+  --border-table: #1F2629;  
+  --ligth-blue: #454E52;
+  --orange-color: #FF8C56;
+  --green-color: #0FB864;
+  --grey-color: #8055FF;
+  --black-color: #BCC4CC;
+  --white-color: #2B2D33;
+  --dropdown-shadow-box: 0px 12px 24px rgba(0, 0, 0, 0.2), 0px 6px 12px rgba(0, 0, 0, 0.3), 0px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+body,
+html {
+    margin: 0;
+    background: var(--back);
+    font-family: Ubuntu;
+    height: 100%;
+    overflow: hidden;
+}
+
+.bodyMain{
+  background: var(--back);
+}
+
+
+

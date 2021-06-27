@@ -1,0 +1,43 @@
+   ._{
+       display: flex;
+       flex-direction: column;
+       flex-grow: 1;
+       width: 100%;
+       max-width: 100%;
+       background: var(--back);
+       border-collapse: collapse;
+    
+   }
+   
+   ._ thead th {
+       font-weight: bold;
+       text-align: left;
+       padding: 10px 15px;
+       background: var(--main);
+       color: var(--buttonText);
+   }
+   
+   .Table {
+       width: 100%;      
+   }
+
+   .Article {
+    width: 70px;      
+}
+.ItemName {
+    width: 250px;      
+}
+.ItemSum {
+    width: 130px;      
+}
+   
+   ._ tbody td {
+       text-align: left;
+       padding: 10px 15px;
+       border-bottom: 1px solid var(--border-table);
+       vertical-align: top;
+       color: var(--tableText);
+       overflow-x: auto;
+       max-height: 10px;
+   }
+   

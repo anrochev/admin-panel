@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: var(--black-color);
+}
+
+.caption {
+  padding-bottom: 0.1rem;
+  color: var(--black-color);
+}

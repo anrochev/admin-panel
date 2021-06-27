@@ -1,45 +1,33 @@
-import React, { Component } from 'react';
-import './Filter.css';
+import React from 'react';
+import styles from './Filter.module.css';
 import filter from '../../icons/filter.svg';
 import refresh from '../../icons/refresh.svg';
-export default class Filter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isToggleOn: true,
-    };
-    this.handleClick = this.handleClick.bind(this)
-  }
+import { SearchBox } from 'components/SearchBox/SearchBox'
+import { useDispatch } from 'react-redux'
+import { filterFioOrNumber } from 'features/Orders/ordersSlice'
+import { changeVisibleFilter } from 'features/ui/uiSlice'
 
-  handleClick() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
-    }));
+let isFilterOn = false;
+export function Filter() {
+  const dispatch = useDispatch()  
 
-    if (this.state.isToggleOn) {
-      document.getElementsByClassName('FilterExtended')[0].style = 'display:flex';
-    }
-    else {
-      document.getElementsByClassName('FilterExtended')[0].style = 'display:none';
-    }
-  }
+  return (
+    <div className={styles._}>
+ 
+      <SearchBox 
+         onChange={({ target: { value } }) => dispatch(filterFioOrNumber(value))}
+         onReset={() => dispatch(filterFioOrNumber(''))}
+      />
 
-  render() {
-    return (
-      <div className="Filter">
-        <div className="Filter_Order_Number">
-          <input type="text" className="Filter_Order_Number-Input" placeholder="Номер заказа или ФИО" size="29" />
+      <button className={styles.Button} id="filter_button" onClick={() => dispatch(changeVisibleFilter())}>
+        <img src={filter} alt="filter" width="13px" height="13px" />
+        Фильтры
+      </button>
+      <div className={styles.Loading}>
+        <img src={refresh} className={styles.Loading_Name} alt="refresh" width="16px" height="16px" />
+        <div className={styles.Loading_Refresh}>Загрузка
         </div>
-        <button className="Filter_Button" id="filter_button" onClick={this.handleClick}>
-          <img src={filter} alt="filter" width="13px" height="13px" />
-              Фильтры
-        </button>
-        <div className="Filter_Loading">
-          <img src={refresh} className="Filter_Loading_Name" alt="refresh" width="16px" height="16px" />
-          <div className="Filter_Loading_Refresh">Загрузка
-           </div>
-         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }

@@ -1,0 +1,50 @@
+._ {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    margin-bottom: 3px;
+    justify-content:flex-start
+}
+
+.Number {
+    left: 0px;
+}
+
+.NumberInput {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid var(--main);
+    border-radius: 4px;
+    padding: 4px 4px 4px 30px;
+    height: 2em;
+    background: var(--back);
+}
+
+.Button {
+    position: relative;  
+    margin-left: 8px;
+    background: var(--main);
+    border-radius: 4px;
+    color: var(--buttonText);
+    width: 95px;
+    height: 2em;
+    cursor: pointer;
+    border: none;
+}
+
+.Loading {
+    display: flex;
+    position: absolute;
+    right: 55px;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--main);
+}
+
+.Filter_Loading_Picture {
+    margin: 0px 8px
+}
+
+.Loading_Name {
+    margin: 0px 8px
+}

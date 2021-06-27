@@ -1,0 +1,36 @@
+._ {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.Title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--tableText);
+    text-shadow: -1px 0 var(--back), 0 1px var(--back), 1px 0 var(--back), 0 -1px var(--back);
+}
+
+.Theme {
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    right: 0px;
+    font-size: 16px;
+    line-height: 16px;
+    color: var(--main);
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 8px;
+    cursor: pointer;
+    height: 100%;
+}
+
+.ThemePicture {
+    margin: 1px 8px;
+}
+
+.Button {
+    font-weight: 900;
+}
